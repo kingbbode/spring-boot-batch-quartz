@@ -1,0 +1,12 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-batch')
+    compile('org.springframework:spring-context-support')
+    compile('org.quartz-scheduler:quartz:2.3.0')
+    compileOnly("org.projectlombok:lombok:1.16.16")
+}

@@ -1,0 +1,6 @@
+spring:
+    datasource:
+        driverClassName: com.mysql.jdbc.Driver
+        password: dusgml1204
+        url: jdbc:mysql://localhost/test
+        username: root

@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework:spring-context-support')
+    compile('org.quartz-scheduler:quartz:2.3.0')
+    compile('com.vaadin:vaadin-spring-boot-starter')
+    compile("org.springframework.boot:spring-boot-starter-batch") {
+        exclude group: 'org.springframework.batch', module: 'spring-batch-infrastructure'
+    }
+    runtime('org.springframework.boot:spring-boot-devtools')
+    runtime('mysql:mysql-connector-java')
+    compileOnly('org.projectlombok:lombok')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompileOnly("org.projectlombok:lombok")
+}

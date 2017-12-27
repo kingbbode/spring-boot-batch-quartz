@@ -1,0 +1,4 @@
+rootProject.name = 'spring-boot-batch-quartz-root'
+include 'spring-boot-batch-quartz'
+include 'spring-boot-batch-quartz-admin'
+
