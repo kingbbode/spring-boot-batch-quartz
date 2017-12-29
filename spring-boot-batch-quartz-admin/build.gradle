@@ -19,3 +19,9 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompileOnly("org.projectlombok:lombok")
 }
+
+dependencyManagement {
+    imports {
+        mavenBom "com.vaadin:vaadin-bom:8.1.0"
+    }
+}

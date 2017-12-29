@@ -16,6 +16,7 @@ import org.quartz.DisallowConcurrentExecution;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.quartz.SchedulerException;
+import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersInvalidException;
 import org.springframework.batch.core.configuration.JobLocator;
@@ -49,12 +50,12 @@ public class BatchJobExecutor implements org.quartz.Job {
     public void execute(JobExecutionContext context) throws JobExecutionException {
         try {
             String jobName = BatchHelper.getJobName(context.getMergedJobDataMap());
-            log.debug("[{}] started.", jobName);
             JobParameters jobParameters = BatchHelper.getJobParameters(context);
-            jobLauncher.run(jobLocator.getJob(jobName), jobParameters);
-            log.debug("[{}] completed.", jobName);
+            //spring batch Job 실행.
+            JobExecution jobExecution = jobLauncher.run(jobLocator.getJob(jobName), jobParameters);
+            log.debug("{}_{} was completed successfully", jobName, jobExecution.getId());
         } catch (NoSuchJobException | JobExecutionAlreadyRunningException | JobRestartException | JobInstanceAlreadyCompleteException | JobParametersInvalidException | SchedulerException e) {
-            log.error("job execution exception! - {}", e.getCause());
+            log.error("Encountered job execution exception!", e.getCause());
             throw new JobExecutionException();
         }
     }
