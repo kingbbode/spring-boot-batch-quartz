@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 /**
  * Created by YG-MAC on 2017. 12. 16..
  */
-public class CacheDetailComponent extends CustomComponent implements View {
+public class SchedulerDetailComponent extends CustomComponent implements View {
 
     private static DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private static final String SEARCH_DEFAULT = "";
@@ -33,7 +33,7 @@ public class CacheDetailComponent extends CustomComponent implements View {
     private Grid<Element> detailGrid;
     private TextField searchTextField;
 
-    public CacheDetailComponent(CacheManager cacheManager) {
+    public SchedulerDetailComponent(CacheManager cacheManager) {
         this.cacheManager = cacheManager;
     }
 

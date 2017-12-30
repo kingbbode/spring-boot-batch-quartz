@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+//@RestController
 public class JobController {
     
     private final JobExecutionService jobExecutionService;
