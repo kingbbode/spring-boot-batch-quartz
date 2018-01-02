@@ -44,6 +44,14 @@ public class SchedulerService {
 
     public List<SchedulerResponse> getSchedulerList() {
         return this.quartzJobDetailsRepository.findAll()
+                .stream()
+                .map(QrtzJobDetails::toSchedulerResponse)
+                .collect(Collectors.toList());
+    }
+
+    public List<SchedulerResponse> getSchedulerListByScheduleNameAndVersion(String scheduleName, String version) {
+        return this.quartzJobDetailsRepository.findByIdSchedName(scheduleName + "_" + version)
+                .stream()
                 .map(QrtzJobDetails::toSchedulerResponse)
                 .collect(Collectors.toList());
     }

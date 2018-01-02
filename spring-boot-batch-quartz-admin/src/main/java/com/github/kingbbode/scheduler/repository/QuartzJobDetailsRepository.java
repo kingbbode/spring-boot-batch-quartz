@@ -15,11 +15,14 @@ import com.github.kingbbode.scheduler.domain.QrtzJobDetails;
 import com.github.kingbbode.scheduler.domain.QrtzJobDetailsId;
 import org.springframework.data.repository.Repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
 public interface QuartzJobDetailsRepository extends Repository<QrtzJobDetails, QrtzJobDetailsId> {
+    List<QrtzJobDetails> findByIdSchedName(String SchedulerName);
+
     Optional<QrtzJobDetails> findByIdSchedNameAndIdJobName(String SchedulerName, String jobName);
 
-    Stream<QrtzJobDetails> findAll();
+    List<QrtzJobDetails> findAll();
 }

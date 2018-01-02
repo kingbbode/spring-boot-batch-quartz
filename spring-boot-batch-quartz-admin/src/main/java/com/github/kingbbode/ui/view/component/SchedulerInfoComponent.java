@@ -64,7 +64,7 @@ public class SchedulerInfoComponent extends CustomComponent implements View {
                 .filter(lists -> !lists.isEmpty())
                 .map(GroupScheduler::new)
                 .collect(Collectors.toList());
-        grid.setItems();
+        grid.setItems(groupSchedulers);
         grid.setSizeFull();
         grid.setSelectionMode(Grid.SelectionMode.NONE);
 
